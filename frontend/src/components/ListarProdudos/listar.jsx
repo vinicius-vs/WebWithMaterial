@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-      backgroundColor: theme.palette.common.black,
+      backgroundColor: theme.palette.primary.main,
       color: theme.palette.common.white,
     },
     body: {
@@ -28,7 +28,9 @@ const StyledTableCell = withStyles((theme) => ({
 
 
 class Listar extends Component {
-    rows = [{"id":1,"nome":"test","categoria":"test"}];
+    rows = [{"id":1,"nome":"test","categoria":"test"}, {
+      "id":1,"nome":"nome","categoria":"categoria"
+    }];
     state = {}
     
     render() {
@@ -37,7 +39,7 @@ class Listar extends Component {
                 <Table  aria-label="customized table">
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell>ID</StyledTableCell>
+                            <StyledTableCell >ID</StyledTableCell>
                             <StyledTableCell align="right">Nome</StyledTableCell>
                             <StyledTableCell align="right">Categoria</StyledTableCell>
                         </TableRow>
@@ -55,6 +57,7 @@ class Listar extends Component {
                     </TableBody>
                 </Table>
             </TableContainer>
+            
         );
     }
 }
