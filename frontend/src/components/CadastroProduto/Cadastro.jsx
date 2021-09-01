@@ -15,7 +15,7 @@ class Cadastro extends Component {
                 <TextField margin="normal" id="IpId" label="Id" type="number" variant="outlined" fullWidth />
                 <TextField margin="normal" id="IpName" label="Nome" variant="outlined" fullWidth />
                 <FormControl variant="outlined" fullWidth>
-                    <InputLabel  id="demo-simple-select-outlined-label">Categoria</InputLabel>
+                    <InputLabel id="demo-simple-select-outlined-label">Categoria</InputLabel>
                     <Select
                         labelId="demo-simple-select-outlined-label"
                         id="demo-simple-select-outlined"
