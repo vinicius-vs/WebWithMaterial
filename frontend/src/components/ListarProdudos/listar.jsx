@@ -28,11 +28,32 @@ const StyledTableCell = withStyles((theme) => ({
 
 
 class Listar extends Component {
-    rows = [{"id":1,"nome":"test","categoria":"test"}, {
-      "id":1,"nome":"nome","categoria":"categoria"
-    }];
+    repor;
     state = {}
+
+    constructor(props){
+      super(props);
+      this.state={
+        rows : []
+      }
+    }
+
+    componentDidMount(){
+      this.repor = this.props.reporProduct;
+      this.setState({
+        rows : this.repor.read()
+      })
+      this.repor.register(this.getListProduct.bind(this))
+    }
     
+    componentWillUnmount(){
+      this.repor.unsubscribe(this.getListProduct.bind(this))
+    }
+    getListProduct(list){
+      this.setState({
+        rows : list
+      })
+    }
     render() {
         return (
             <TableContainer component={Paper}>
@@ -45,7 +66,7 @@ class Listar extends Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {this.rows.map((e,k) => (
+                        {this.state.rows.map((e,k) => (
                             <StyledTableRow key={k}>
                                 <StyledTableCell component="th" scope="row">
                                     {e.id}
@@ -57,9 +78,7 @@ class Listar extends Component {
                     </TableBody>
                 </Table>
             </TableContainer>
-            
         );
     }
 }
-
 export default Listar;
